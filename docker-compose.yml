@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      - "SPRING_PROFILES_ACTIVE=local"
+      - MY_SQL_ROOT_PASSWORD=root
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - db-babybook:/var/lib/mysql
+volumes:
+  db-babybook:
